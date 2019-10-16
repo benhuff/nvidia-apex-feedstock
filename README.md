@@ -1,5 +1,5 @@
-About nvidia-apex
-=================
+About nvidia-apex-split
+=======================
 
 Home: https://nvidia.github.io/apex/
 
@@ -7,7 +7,7 @@ Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
+Summary: A Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
 
 
 
@@ -16,42 +16,22 @@ Current build status
 
 
 <table>
-    
   <tr>
-    <td>Azure</td>
+    <td>Linux</td>
     <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_python3.6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_c_compilervs2015cxx_compilervs2015python3.6vc14</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.6vc14" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
+      <img src="https://img.shields.io/badge/linux-disabled-lightgrey.svg" alt="linux disabled">
     </td>
   </tr>
   <tr>
     <td>OSX</td>
     <td>
       <img src="https://img.shields.io/badge/OSX-disabled-lightgrey.svg" alt="OSX disabled">
+    </td>
+  </tr>
+  <tr>
+    <td>Windows</td>
+    <td>
+      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
   <tr>
@@ -68,20 +48,21 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex-green.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex.svg)](https://anaconda.org/conda-forge/nvidia-apex) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nvidia--apex--proc-green.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nvidia-apex-proc.svg)](https://anaconda.org/conda-forge/nvidia-apex-proc) |
 
-Installing nvidia-apex
-======================
+Installing nvidia-apex-split
+============================
 
-Installing `nvidia-apex` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `nvidia-apex-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `nvidia-apex` can be installed with:
+Once the `conda-forge` channel has been enabled, `nvidia-apex, nvidia-apex-proc` can be installed with:
 
 ```
-conda install nvidia-apex
+conda install nvidia-apex nvidia-apex-proc
 ```
 
 It is possible to list all of the versions of `nvidia-apex` available on your platform with:
@@ -129,17 +110,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating nvidia-apex-feedstock
-==============================
+Updating nvidia-apex-split-feedstock
+====================================
 
-If you would like to improve the nvidia-apex recipe or build a new
+If you would like to improve the nvidia-apex-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/nvidia-apex-feedstock are
+Note that all branches in the conda-forge/nvidia-apex-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -156,4 +137,5 @@ Feedstock Maintainers
 
 * [@benhuff](https://github.com/benhuff/)
 * [@oblute](https://github.com/oblute/)
+* [@rluria14](https://github.com/rluria14/)
 
