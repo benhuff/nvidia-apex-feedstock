@@ -1,10 +1,11 @@
 {% set version = "0.1" %}
 {% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
 
-{% set nvidia-apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}
+{% set apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}
 
 package:
   name: nvidia-apex-split
+  version: {{ version }}
 
 source:
   url: https://github.com/NVIDIA/apex/archive/{{ commit }}.tar.gz
@@ -19,7 +20,7 @@ outputs:
     version: {{ version }}
     build:
       number: 0
-      string: "{{ nvidia-apex_proc_type }}"
+      string: "{{ apex_proc_type }}"
     test:
       commands:
         - exit 0
@@ -27,18 +28,18 @@ outputs:
       home: https://github.com/conda-forge/nvidia-apex-feedstock
       license: BSD-3-Clause
       license_family: BSD
-      summary: 'A meta-package to select CPU or GPU nvidia-apex build.'
+      summary: A meta-package to select CPU or GPU nvidia-apex build.
 
   - name: nvidia-apex
     version: {{ version }}
     build:
       number: 0
-      script: "{{ PYTHON }} -m pip install . -vv "
+      script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler("cuda") }}         # [cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
@@ -53,8 +54,8 @@ outputs:
         - PyYAML
         - pytest
       run_constrained:
-        - nvidia-apex-proc * {{ nvidia-apex_proc_type }}
-    script: install_nvidia-apex.sh
+        - nvidia-apex-proc * {{ apex_proc_type }}
+
     test:
       imports:
         - apex
@@ -62,20 +63,21 @@ outputs:
         - apex.parallel
         - apex.optimizers
         - apex.normalization.fused_layer_norm
+
     about:
       home: https://nvidia.github.io/apex/
       license: BSD-3-Clause
       license_family: BSD
       license_file: LICENSE
-      summary: 'a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.'
-      dev_url: https://nvidia.github.io/apex/
+      summary: A Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
+      dev_url: https://github.com/NVIDIA/apex
 
 about:
   home: https://nvidia.github.io/apex/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'a Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.'
+  summary: A Pytorch extension with NVIDIA-maintained utilities to streamline mixed precision and distributed training.
   dev_url: https://github.com/NVIDIA/apex
 
 extra:
