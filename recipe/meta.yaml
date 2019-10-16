@@ -12,7 +12,6 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv "
   skip: True  # [osx or (not py36) or (win and vc<14)]
 
 outputs:
@@ -54,7 +53,7 @@ outputs:
         - PyYAML
         - pytest
       run_constrained:
-        - nvidia-apex-proc * {{ nvidia_apex_type }}
+        - nvidia-apex-proc * {{ nvidia-apex_proc_type }}
     script: install_nvidia-apex.sh
     test:
       imports:
