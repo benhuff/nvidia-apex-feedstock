@@ -37,9 +37,18 @@ outputs:
       script: python -m pip install . -vv
     requirements:
       build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
+        - {{ compiler("c") }}
+        - {{ compiler("cxx") }}
+        - {{ compiler("cuda") }}         # [cuda_compiler_version != "None"]
+        - {{ cdt("libnl") }}
+        - {{ cdt("libibverbs-devel") }}
+        - {{ cdt("librdmacm-devel") }}
+        - {{ cdt("numactl-devel") }}
+        - automake
+        - autoconf
+        - libtool
+        - make
+        - pkg-config
       host:
         - python
         - pytorch
