@@ -1,7 +1,7 @@
 {% set version = "0.1" %}
 {% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
-
-{% set apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}
+{% set platform = "win" %}  # [win]
+{% set apex_proc_type = "cpu" if (cuda_compiler_version == "None" or platform == "win") else "gpu" %}
 
 package:
   name: nvidia-apex-split
