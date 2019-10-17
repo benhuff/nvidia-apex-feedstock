@@ -39,7 +39,7 @@ outputs:
       build:
         - {{ compiler("c") }}
         - {{ compiler("cxx") }}
-        - {{ compiler("cuda") }}         # [linux or cuda_compiler_version != "None"]
+        - {{ compiler("cuda") }}         # [cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
@@ -62,7 +62,7 @@ outputs:
         - apex.parallel
         - apex.optimizers
         - apex.normalization.fused_layer_norm
-      skip: True  # [osx or (not py36) or (win and vc<14)]
+      skip: True  # [osx or py2k or (win and vc<14)]
     about:
       home: https://nvidia.github.io/apex/
       license: BSD-3-Clause
