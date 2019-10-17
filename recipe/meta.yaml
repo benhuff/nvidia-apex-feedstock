@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [osx or (not py36) or (win and vc<14)]
+  skip: True  # [osx or (not py2k) or (win and vc<14)]
 
 outputs:
   - name: nvidia-apex-proc
@@ -33,22 +33,13 @@ outputs:
   - name: nvidia-apex
     version: {{ version }}
     build:
-      number: 0
+      number: 1
       script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler("c") }}
         - {{ compiler("cxx") }}
-        - {{ compiler("cuda") }}         # [cuda_compiler_version != "None"]
-        - {{ cdt("libnl") }}
-        - {{ cdt("libibverbs-devel") }}
-        - {{ cdt("librdmacm-devel") }}
-        - {{ cdt("numactl-devel") }}
-        - automake
-        - autoconf
-        - libtool
-        - make
-        - pkg-config
+        - {{ compiler("cuda") }}         # [linux64 and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
@@ -64,7 +55,6 @@ outputs:
         - pytest
       run_constrained:
         - nvidia-apex-proc * {{ apex_proc_type }}
-
     test:
       imports:
         - apex
@@ -72,7 +62,7 @@ outputs:
         - apex.parallel
         - apex.optimizers
         - apex.normalization.fused_layer_norm
-
+      skip: True  # [osx or (not py36) or (win and vc<14)]
     about:
       home: https://nvidia.github.io/apex/
       license: BSD-3-Clause
@@ -94,3 +84,4 @@ extra:
     - oblute
     - benhuff
     - rluria14
+    - jakirkham
