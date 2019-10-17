@@ -113,17 +113,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_vc14</td>
+              <td>win_c_compilervs2015cxx_compilervs2015python3.6vc14</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_vc14" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.6vc14" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_vc9</td>
+              <td>win_c_compilervs2015cxx_compilervs2015python3.7vc14</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8144&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_vc9" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nvidia-apex-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.7vc14" alt="variant">
                 </a>
               </td>
             </tr>
