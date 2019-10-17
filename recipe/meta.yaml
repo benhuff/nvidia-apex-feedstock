@@ -1,7 +1,7 @@
 {% set version = "0.1" %}
 {% set commit = "088985936518be7e25795a30d8ab33affa9db6ed" %}
-{% set platform = "win" %}  # [win]
-{% set apex_proc_type = "cpu" if (cuda_compiler_version == "None" or platform == "win") else "gpu" %}
+
+{% set apex_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}
 
 package:
   name: nvidia-apex-split
@@ -13,7 +13,6 @@ source:
 
 build:
   number: 0
-  skip: True  # [osx or py2k or (win and vc<14)]
 
 outputs:
   - name: nvidia-apex-proc
@@ -21,6 +20,7 @@ outputs:
     build:
       number: 0
       string: "{{ apex_proc_type }}"
+      skip: True  # [osx or py2k or (win and vc<14)]
     test:
       commands:
         - exit 0
@@ -35,7 +35,7 @@ outputs:
     build:
       number: 1
       script: python -m pip install . -vv
-      skip: True  # [(not linux) or py2k]
+      skip: True  # [not linux or py2k]
     requirements:
       build:
         - {{ compiler("c") }}
